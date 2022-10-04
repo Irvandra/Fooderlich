@@ -1,15 +1,13 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'fooderlich_theme.dart';
+import '../fooderlich_theme.dart';
+import '../models/models.dart';
 
 class Card1 extends StatelessWidget {
-  const Card1({Key? key}) : super(key: key);
+  final ExploreRecipe recipe;
 
-  final String category = "Editor\'s choice";
-  final String title = "The Art of Dough";
-  final String description = "Learn to make the perfect bread.";
-  final String chef = "Ray Wenderlich";
+  const Card1({Key? key, required this.recipe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +16,19 @@ class Card1 extends StatelessWidget {
         child: Stack(
           children: [
             Text(
-              category,
+              recipe.subtitle.toString(),
               style: FooderlichTheme.darkTextTheme.bodyText1,
             ),
             Positioned(
               child: Text(
-                title,
+                recipe.title.toString(),
                 style: FooderlichTheme.darkTextTheme.headline2,
               ),
               top: 20,
             ),
             Positioned(
               child: Text(
-                description,
+                recipe.message.toString(),
                 style: FooderlichTheme.darkTextTheme.bodyText1,
               ),
               bottom: 30,
@@ -38,7 +36,7 @@ class Card1 extends StatelessWidget {
             ),
             Positioned(
               child: Text(
-                chef,
+                recipe.authorName.toString(),
                 style: FooderlichTheme.darkTextTheme.bodyText1,
               ),
               bottom: 10,
