@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'card1.dart';
-import 'card2.dart';
-import 'card3.dart';
+import 'models/explore_recipe.dart';
+import 'components/components.dart';
+import 'screens/explore_screen.dart';
+import 'screens/recipes_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,9 +15,24 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    const Card1(),
-    const Card2(),
-    const Card3(),
+    ExploreScreen(),
+    RecipesScreen(),
+    Card3(
+        recipe: ExploreRecipe(
+            title: 'Vegan Trends',
+            tags: [
+              'Healthy',
+              'Vegan',
+              'Carrots',
+              'Greens',
+              'Wheat',
+              'Pescetarian',
+              'Mint',
+              'Lemongrass',
+              'Salad',
+              'Water'
+            ],
+            backgroundImage: 'assets/magazine_pics/mag3.png')),
   ];
 
   void _onItemTapped(int index) {
@@ -42,16 +58,16 @@ class _HomeState extends State<Home> {
           onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
             const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard),
-              label: 'Card1',
+              icon: Icon(Icons.explore),
+              label: 'Explore',
             ),
             const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard),
-              label: 'Card2',
+              icon: Icon(Icons.book),
+              label: 'Recipes',
             ),
             const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard),
-              label: 'Card3',
+              icon: Icon(Icons.list),
+              label: 'To Buy',
             ),
           ]),
     );

@@ -46,12 +46,12 @@ class Card1 extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(16),
         constraints: const BoxConstraints.expand(width: 350, height: 450),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/mag1.png'),
+            image: AssetImage(recipe.backgroundImage.toString()),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         ),
       ),
     );

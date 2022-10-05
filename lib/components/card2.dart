@@ -13,10 +13,10 @@ class Card2 extends StatelessWidget {
     return Center(
       child: Container(
         constraints: const BoxConstraints.expand(width: 350, height: 450),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('recipe.backgroundImage'), fit: BoxFit.cover),
-            borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                image: AssetImage(recipe.backgroundImage.toString()), fit: BoxFit.cover),
+            borderRadius: const BorderRadius.all(Radius.circular(10.0))),
         child: Column(
           children: [
             AuthorCard(

@@ -27,7 +27,7 @@ class MockFooderlichService {
 
   Future<List<Post>> _getFriendFeed() async {
     await Future.delayed(const Duration(milliseconds: 1000));
-    final dataString = await _loadAsset('assets/sample_data/sample_friend_feed.json');
+    final dataString = await _loadAsset('assets/sample_data/sample_friends_feed.json');
     final Map<String, dynamic> json = jsonDecode(dataString);
 
     if(json['feed'] != null) {
