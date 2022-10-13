@@ -9,13 +9,13 @@ import '../components/grocery_tile.dart';
 class GroceryItemScreen extends StatefulWidget {
   final Function(GroceryItem) onCreate;
   final Function(GroceryItem) onUpdate;
-  final GroceryItem originalItem;
+  final GroceryItem? originalItem;
   final bool isUpdating;
   const GroceryItemScreen({
     Key? key,
     required this.onCreate,
     required this.onUpdate,
-    required this.originalItem,
+    this.originalItem,
   })  : isUpdating = (originalItem != null),
         super(key: key);
   @override
@@ -33,12 +33,12 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
   @override
   void initState() {
     if (widget.originalItem != null) {
-      _nameController.text = widget.originalItem.name;
-      _name = widget.originalItem.name;
-      _currentSliderValue = widget.originalItem.quantity;
-      _importance = widget.originalItem.importance;
-      _currentColor = widget.originalItem.color;
-      final date = widget.originalItem.date;
+      _nameController.text = widget.originalItem!.name;
+      _name = widget.originalItem!.name;
+      _currentSliderValue = widget.originalItem!.quantity;
+      _importance = widget.originalItem!.importance;
+      _currentColor = widget.originalItem!.color;
+      final date = widget.originalItem!.date;
       _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
       _dueDate = date;
     }
@@ -65,7 +65,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             icon: const Icon(Icons.check),
             onPressed: () {
               final groceryItem = GroceryItem(
-                  id: widget.originalItem.id ?? const Uuid().v1(),
+                  id: widget.originalItem!.id,
                   name: _nameController.text,
                   importance: _importance,
                   color: _currentColor,
@@ -116,7 +116,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
                   _dueDate.day,
                   _timeOfDay.hour,
                   _timeOfDay.minute,
-                ),
+                ), id: '',
               ),
             ),
           ],
